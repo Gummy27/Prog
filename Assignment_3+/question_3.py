@@ -11,7 +11,8 @@ cmd = ""
 guess = 50
 guess_roof = 100
 guess_floor = 0
-counter = 0
+counter = 1
+cheating = True
 # Then start a while loop
 while(cmd != "c" and cmd != "q" and counter <= 7):
     # These lines you can keep as is
@@ -23,20 +24,22 @@ while(cmd != "c" and cmd != "q" and counter <= 7):
     print("q: to (q)uit the game")
     cmd = input()
     if(cmd == "l"):
-        guess_floor = guess+1
-        guess += floor((guess_roof - guess) / 2)
+        guess_floor = guess
+        guess = guess_roof - floor((guess_roof - guess) // 2) 
     elif(cmd == "h"):
         guess_roof = guess-1
-        guess -= floor((guess -guess_floor) / 2)
+        guess = guess_floor + floor((guess - guess_floor) // 2)
     elif(cmd == "c"):
         print("I AM VICTORIOUS")
+        cheating = False
     elif(cmd == "q"):
         print("Quitter")
+        cheating = False
     counter += 1
     
     # Now it's up to you to check the command and take appropriate action
 
 
 # If you detect that the user has not been truthful, you should print the following
-if(counter > 7):
+if(counter >= 7 and cheating):
     print("Tsk, tsk, don't try to cheat me")
