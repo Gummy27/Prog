@@ -1,11 +1,14 @@
 stones = float(input("Weight in stones: "))
-pounds = float(input("Weight in pounds: "))
-feet = float(input("Height in feet: "))
+pounds = float(input("Extra pounds: "))
+feet =   float(input("Height in feet: "))
 inches = float(input("Extra inches: "))
 
-weight = stones * 6.3503 + pounds * 0.4540
-height = feet * 30.48 + inches * 2.54
+weight_kg = stones * 6.3503 + pounds * 0.4540
+height_cm = feet * 30.48 + inches * 2.54
+# bmi = kg/m**2
+bmi = weight_kg/((height_cm/100)**2)
 
-print("kg:", round(weight, 1))
-print("cm:", round(height, 1))
-print("BMI:", round(weight/((height/100)**2), 1))
+print()
+print("kg:",  round(weight_kg, 1))
+print("cm:",  round(height_cm, 1))
+print("BMI:", round(bmi, 1))
