@@ -16,7 +16,6 @@ first_letter = line1[0]
 
 shift = ord(first_letter) - ord("H")
 
-print(shift)
 # We can use 'for' to iterate over the lines and decrypt them one by one
 for line in (line1, line2, line3, line4):
     for letter in line:
