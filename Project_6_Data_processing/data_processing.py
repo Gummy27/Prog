@@ -53,9 +53,9 @@ def insert_into_columns(data):
     data[1] = f"{round(float(data[1]), 2):.2f}"
     data[2] = f"{round(float(data[2]), 2):.2f}"
 
-    first_column = 12 - len(data[0])
+    first_column = 12  - len(data[0])
     second_column = 10 - len(str(data[1]))
-    third_column = 10 - len(str(data[2]))
+    third_column = 10  - len(str(data[2]))
 
     finished_columns =  data[0] + ' '*first_column
     finished_columns += ' '*second_column + data[1]
