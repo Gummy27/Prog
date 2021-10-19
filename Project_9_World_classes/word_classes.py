@@ -7,11 +7,12 @@ WORD_CLASSES = [
     "f",
     "l",
     "n",
-    "s"
+    "s",
+    "t"
 ]
 
 def main():
-    original_word_list = read_file()
+    original_word_list = filter_empty(read_file())
     print()
     
     if(original_word_list):
@@ -46,15 +47,30 @@ def read_file() -> list:
         return []
       
 def print_out_dict(word_dict):
+    """
+        This function will print out the dict.
+    """
     for word_class in WORD_CLASSES:
-        print(f"{word_class}:")
         
         last_word = ""
-        for word in sorted(word_dict[word_class]):
-            if(word != last_word):
-                spacing = " "*(20-len(word))
-                print(spacing+word)
-                last_word = word
+        if(word_class in word_dict):
+            print(f"{word_class}:")
+            for word in sorted(word_dict[word_class]):
+                if(word != last_word):
+                    spacing = " "*(20-len(word))
+                    print(spacing+word)
+                    last_word = word
+
+def filter_empty(word_list):
+    """
+        This function takes in a list and filters out all the empty
+        slots.
+    """
+    new_list = []
+    for x in word_list:
+        if(x):
+            new_list.append(x)
+    return new_list
 
 def two_split_delimiters(text: str, delimiters: list) -> list:
     """
