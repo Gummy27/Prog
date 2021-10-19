@@ -37,7 +37,6 @@ people_age = sorted(people_age)
 
 median_index = (number_of_people+1)/2
 if(median_index % 2 == 0):
-    print(int(median_index))
     median_age = people_age[int(median_index-1)]
 else:
     median_index = round(median_index)
